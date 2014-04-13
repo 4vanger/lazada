@@ -1,0 +1,19 @@
+{
+  "name": "LAZADA",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-less": "*",
+    "grunt-angular-templates": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compress": "~0.5.0",
+    "grunt-yui-compressor": "*",
+    "grunt-contrib-cssmin": "~0.6.2",
+    "grunt-contrib-sass": "~0.6.0",
+    "grunt-contrib-compass": "~0.7.0"
+  }
+}
