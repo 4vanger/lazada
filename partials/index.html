@@ -1,4 +1,10 @@
 <div class="container">
+	<ul class="errors" ng-show="errors.length > 0">
+		<li ng-repeat="(index, error) in errors track by index" class="alert  alert-danger">
+			<button type="button" class="close" ng-click="removeError(index)">&times;</button>
+			{{ error }}
+		</li>
+	</ul>
 	<form
 		name="addInstanceForm"
 	  ng-submit="addNewInstance()"
@@ -7,6 +13,7 @@
 		<input
 			type="submit"
 			ng-disabled="addInstanceForm.$invalid"
+		  placeholder="Type URL here"
 		/>
 	</form>
 	<table>

@@ -40,7 +40,7 @@ window.app.factory 'instance', ['$http', '$q', ($http, $q) ->
 				res.fields[row.cells[0].innerText] = row.cells[1].innerText
 			# data extracted successfully
 			defered.resolve res
-		.error (error, code) -> defered.reject code + ' ' + error
+		.error (error, code) -> defered.reject 'Cannot load the page: ' + code + ' ' + if error.length > 150 then error.substr(150) + '...' else error
 
 		return defered.promise
 ]

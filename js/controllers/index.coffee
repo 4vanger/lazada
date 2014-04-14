@@ -24,7 +24,7 @@ window.app.controller 'IndexCtrl', ['$scope', 'instance', ($scope, instance) ->
 					$scope.fields[field] = new Array($scope.instances.length)
 				$scope.fields[field][index] = value
 
-
+	$scope.removeError = (index) -> $scope.errors.splice(index, 1)
 	# DEBUG
-	addInstance 'nokia-105-man-hinh-mau-14-xanh-76651.html'
+#	addInstance 'nokia-105-man-hinh-mau-14-xanh-76651.html'
 ]
