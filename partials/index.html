@@ -6,21 +6,36 @@
 		</li>
 	</ul>
 	<form
+		class="form-inline1"
 		name="addInstanceForm"
 	  ng-submit="addNewInstance()"
 	>
-		<input type="url" ng-model="addInstanceUrl" required />
-		<input
-			type="submit"
-			ng-disabled="addInstanceForm.$invalid"
-		  placeholder="Type URL here"
-		/>
+		<div class="row">
+			<div class="col-xs-10">
+				<div class="form-group" ng-class="{'has-error has-feedback': addInstanceForm.url.$error.url}">
+					<input type="url" ng-model="addInstanceUrl" name="url" required class="form-control col-xs-8" />
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addInstanceForm.url.$error.url" title="Invalid URL"></span>
+				</div>
+			</div>
+			<div class="col-xs-2">
+				<input
+					type="submit"
+					class="btn btn-primary"
+					ng-disabled="addInstanceForm.$invalid"
+				  placeholder="Type URL here"
+				/>
+			</div>
+		</div>
+
 	</form>
-	<table>
+	<table ng-show="instances.length > 0" class="table table-striped table-hover">
 		<thead>
 			<tr>
 				<th></th>
-				<th ng-repeat="instance in instances">{{ instance.title }}</th>
+				<th ng-repeat="instance in instances">
+					<small ng-hide="instance.title" class="loading">Please wait - loading data&hellip;</small>
+					<span ng-show="instance.title">{{ instance.title }}</span>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
