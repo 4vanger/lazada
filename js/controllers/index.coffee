@@ -13,6 +13,18 @@ window.app.controller 'IndexCtrl', ['$scope', 'instance', ($scope, instance) ->
 			# error
 			(msg) -> $scope.errors.push msg
 		)
+	$scope.fields = {}
+	$scope.$watch 'instances.length', ->
+		# instances has changed - update indicies
+		$scope.fields = {}
+		for instanceObj, index in $scope.instances
+			for field, value of instanceObj.fields
+				unless $scope.fields[field]
+					# add record for new field
+					$scope.fields[field] = new Array($scope.instances.length)
+				$scope.fields[field][index] = value
+
+
 	# DEBUG
 	addInstance 'nokia-105-man-hinh-mau-14-xanh-76651.html'
 ]

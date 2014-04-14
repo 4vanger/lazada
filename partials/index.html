@@ -9,8 +9,19 @@
 			ng-disabled="addInstanceForm.$invalid"
 		/>
 	</form>
-	<ul>
-		<li ng-repeat="instance in instances">{{ instance }}</li>
-	</ul>
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th ng-repeat="instance in instances">{{ instance.title }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(field, values) in fields" ng-class="{'odd': $odd, 'even': $even}">
+				<td>{{ field }}</td>
+				<td ng-repeat="instanceValue in values">{{ instanceValue }}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
