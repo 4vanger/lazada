@@ -1,4 +1,4 @@
-window.app.factory 'instance', ['$http', '$q', ($http, $q) ->
+window.app.factory 'instanceModel', ['$http', '$q', ($http, $q) ->
 	(url) ->
 		# support older browsers
 		getElementsByClassName = (el, className) ->
@@ -15,7 +15,8 @@ window.app.factory 'instance', ['$http', '$q', ($http, $q) ->
 		defered = $q.defer()
 		$http(
 			method: 'GET'
-			url: '/proxy/' + url
+			# get throught local proxy
+			url: '/proxy/' + url.replace(/https?:\/\/(www\.)?lazada.vn\//, '')
 			cache: true
 		)
 		.success (data) ->

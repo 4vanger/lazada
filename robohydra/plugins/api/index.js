@@ -11,6 +11,10 @@ exports.getBodyParts = function(conf) {
                 mountPath: '/css',
                 documentRoot: 'dist/css/'
             }),
+	        new heads.RoboHydraHeadFilesystem({
+                mountPath: '/img',
+                documentRoot: 'dist/img/'
+            }),
 	        new heads.RoboHydraHeadProxy({
 		        mountPath: '/proxy',
 		        proxyTo: 'http://www.lazada.vn',

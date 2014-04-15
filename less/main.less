@@ -9,6 +9,10 @@
   width: 400px;
   right: 10px;
   top: 60px;
+  z-index: 1;
+  .alert {
+    margin-bottom: 3px;
+  }
 }
 
 .loading {
@@ -17,4 +21,21 @@
 
 .container .form-control-feedback {
   top: 0px;
+}
+
+.switch {
+  width: 150px;
+  .choice {
+    border-bottom: 1px black dotted;
+  }
+
+  .choice.active {
+    border-bottom: none;
+    text-decoration: none;
+    color: @link-hover-color;
+  }
+}
+
+.field-name {
+  font-weight: bold;
 }
